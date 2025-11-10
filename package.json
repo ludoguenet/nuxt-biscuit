@@ -1,0 +1,65 @@
+{
+  "name": "nuxt-biscuit",
+  "version": "1.0.0",
+  "description": "Lightweight Nuxt module for Laravel Sanctum cookie authentication",
+  "keywords": [
+    "nuxt",
+    "nuxt-module",
+    "laravel",
+    "sanctum",
+    "authentication",
+    "auth"
+  ],
+  "author": {
+    "name": "Ludovic Guénet",
+    "email": "ludo@epekta.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ludoguenet/nuxt-biscuit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ludoguenet/nuxt-biscuit/issues"
+  },
+  "homepage": "https://github.com/ludoguenet/nuxt-biscuit#readme",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "main": "./dist/module.mjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.13.0",
+    "defu": "^6.1.4"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^1.5.0",
+    "@nuxt/eslint-config": "^0.5.0",
+    "@nuxt/module-builder": "^0.8.0",
+    "@nuxt/schema": "^3.13.0",
+    "@nuxt/test-utils": "^3.14.0",
+    "changelogen": "^0.5.5",
+    "eslint": "^9.9.1",
+    "nuxt": "^3.13.0",
+    "typescript": "latest",
+    "vitest": "^3.2.0",
+    "vue-tsc": "^2.1.2"
+  }
+}

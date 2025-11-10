@@ -1,0 +1,13 @@
+playground
+node_modules
+.nuxt
+.output
+*.log
+.DS_Store
+.vscode
+.idea
+*.tgz
+test
+tests
+coverage
+.github
