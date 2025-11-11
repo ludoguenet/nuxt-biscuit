@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./art/logo.png" alt="Nuxt Biscuit logo" width="200">
+  <img src="./art/logo.png" alt="Nuxt Biscuit logo" style="max-width: 25%;">
 </p>
 
 [![Nuxt](https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js)][nuxt-href]
