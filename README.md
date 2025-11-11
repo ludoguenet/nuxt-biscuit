@@ -1,9 +1,21 @@
 <p align="center">
-  <img src="./art/logo.png" alt="Nuxt Biscuit logo" width="200px">
+  <img src="./art/logo.png" alt="Nuxt Biscuit logo" width="200">
 </p>
 
-[![Nuxt](https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js)][nuxt-href]
-[![License](https://img.shields.io/badge/License-MIT-00DC82.svg)][license-href]
+<p align="center">
+  <a href="https://nuxt.com">
+    <img src="https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js&logoColor=00DC82" alt="Nuxt Badge">
+  </a>
+  <a href="https://www.npmjs.com/package/nuxt-biscuit">
+    <img src="https://img.shields.io/npm/v/nuxt-biscuit?color=00DC82&label=Version&logo=npm" alt="npm version">
+  </a>
+  <a href="https://github.com/ludoguenet/nuxt-biscuit/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-00DC82.svg" alt="License: MIT">
+  </a>
+  <a href="https://github.com/ludoguenet/nuxt-biscuit">
+    <img src="https://img.shields.io/github/stars/ludoguenet/nuxt-biscuit?style=social" alt="GitHub stars">
+  </a>
+</p>
 
 Lightweight Nuxt module for Nuxt 3/4 that wires a Nuxt frontend to a Laravel Sanctum backend using first-party cookie authentication. Nuxt Biscuit ships a preconfigured composable, route middleware, and runtime plugin so you can log users in, out, and guard pages with only a few lines of code.
 
