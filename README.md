@@ -1,20 +1,12 @@
-<!--
-Get your module up and running quickly.
-
-Find and replace all on all files (CMD+SHIFT+F):
-- Name: My Module
-- Package name: my-module
-- Description: My new Nuxt module
--->
-
-# Nuxt Biscuit
+<p align="center">
+  <img src="./art/logo.png" alt="Nuxt Biscuit logo" width="200">
+</p>
 
 [![Nuxt](https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js)][nuxt-href]
 [![License](https://img.shields.io/badge/License-MIT-00DC82.svg)][license-href]
 
 Lightweight Nuxt module for Nuxt 3 and the latest Nuxt 4 release that wires a Nuxt frontend to a Laravel Sanctum backend using first-party cookie authentication. Nuxt Biscuit ships a preconfigured composable, route middleware, and runtime plugin so you can log users in, out, and guard pages with only a few lines of code.
 
-- [✨ Release Notes](/CHANGELOG.md)
 - [🏀 Playground](./playground)
 
 ## Features
@@ -139,12 +131,6 @@ onUserChange((newUser) => {
   ```
 
 </details>
-
-## Roadmap
-
-- [ ] Publish to npm and update badges
-- [ ] Document recommended Laravel Sanctum configuration
-- [ ] Add end-to-end tests against a sample Laravel backend
 
 ## License
 
