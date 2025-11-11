@@ -5,9 +5,7 @@
 [![Nuxt](https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js)][nuxt-href]
 [![License](https://img.shields.io/badge/License-MIT-00DC82.svg)][license-href]
 
-Lightweight Nuxt module for Nuxt 3 and the latest Nuxt 4 release that wires a Nuxt frontend to a Laravel Sanctum backend using first-party cookie authentication. Nuxt Biscuit ships a preconfigured composable, route middleware, and runtime plugin so you can log users in, out, and guard pages with only a few lines of code.
-
-- [🏀 Playground](./playground)
+Lightweight Nuxt module for Nuxt 3/4 that wires a Nuxt frontend to a Laravel Sanctum backend using first-party cookie authentication. Nuxt Biscuit ships a preconfigured composable, route middleware, and runtime plugin so you can log users in, out, and guard pages with only a few lines of code.
 
 ## Features
 
@@ -24,7 +22,7 @@ Lightweight Nuxt module for Nuxt 3 and the latest Nuxt 4 release that wires a Nu
 
 ## Installation
 
-Add the dependency to your project (replace the tag with the version you need when published):
+Add the dependency to your project:
 
 ```bash
 npm install nuxt-biscuit
@@ -102,39 +100,6 @@ onUserChange((newUser) => {
 })
 ```
 
-## Development
-
-<details>
-  <summary>Local setup</summary>
-
-  ```bash
-  # Install dependencies
-  npm install
-
-  # Generate stubs and prepare module + playground
-  npm run dev:prepare
-
-  # Run the playground in dev mode
-  npm run dev
-
-  # Build the playground for production
-  npm run dev:build
-
-  # Lint, test, and type-check
-  npm run lint
-  npm run test
-  npm run test:watch
-  npm run test:types
-
-  # Release (runs lint/test/prepack + publishes via changelogen)
-  npm run release
-  ```
-
-</details>
-
 ## License
 
 Licensed under the [MIT license](LICENSE).
-
-[nuxt-href]: https://nuxt.com
-[license-href]: https://github.com/yourusername/nuxt-biscuit/blob/master/LICENSE
