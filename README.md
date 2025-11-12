@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./art/logo.png" alt="Nuxt Biscuit logo" width="200">
+  <img src="./art/logo.png" alt="Nuxt Biscuit logo" width="250">
 </p>
 
 <p align="center">
