@@ -38,7 +38,7 @@
     "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxi prepare playground && nuxt-module-build build",
+    "dev:prepare": "nuxi prepare playground && nuxt-module-build bu ild",
     "release": "npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint . --fix",
     "test": "vitest run",
