@@ -1,25 +1,32 @@
-<p align="center">
+<div align="center">
   <img src="./art/logo.png" alt="Nuxt Biscuit logo" width="250">
-</p>
+  
+  <h3>Lightweight Nuxt module for Laravel Sanctum cookie authentication</h3>
+  
+  <p>
+    <a href="https://nuxt.com">
+      <img src="https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js&logoColor=00DC82" alt="Nuxt Badge">
+    </a>
+    <a href="https://www.npmjs.com/package/nuxt-biscuit">
+      <img src="https://img.shields.io/npm/v/nuxt-biscuit?color=00DC82&label=Version&logo=npm" alt="npm version">
+    </a>
+    <a href="https://www.npmjs.com/package/nuxt-biscuit">
+      <img src="https://img.shields.io/npm/dm/nuxt-biscuit?color=00DC82&label=Downloads&logo=npm" alt="npm downloads">
+    </a>
+    <a href="https://github.com/ludoguenet/nuxt-biscuit/blob/main/LICENSE">
+      <img src="https://img.shields.io/badge/License-MIT-00DC82.svg" alt="License: MIT">
+    </a>
+    <a href="https://github.com/ludoguenet/nuxt-biscuit">
+      <img src="https://img.shields.io/github/stars/ludoguenet/nuxt-biscuit?style=social" alt="GitHub stars">
+    </a>
+  </p>
+</div>
 
-<p align="center">
-  <a href="https://nuxt.com">
-    <img src="https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js&logoColor=00DC82" alt="Nuxt Badge">
-  </a>
-  <a href="https://www.npmjs.com/package/nuxt-biscuit">
-    <img src="https://img.shields.io/npm/v/nuxt-biscuit?color=00DC82&label=Version&logo=npm" alt="npm version">
-  </a>
-  <a href="https://github.com/ludoguenet/nuxt-biscuit/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-00DC82.svg" alt="License: MIT">
-  </a>
-  <a href="https://github.com/ludoguenet/nuxt-biscuit">
-    <img src="https://img.shields.io/github/stars/ludoguenet/nuxt-biscuit?style=social" alt="GitHub stars">
-  </a>
-</p>
+---
 
 Lightweight Nuxt module for Nuxt 3/4 that wires a Nuxt frontend to a Laravel Sanctum backend using first-party cookie authentication. Nuxt Biscuit ships a preconfigured composable, route middleware, and runtime plugin so you can log users in, out, and guard pages with only a few lines of code.
 
-## Features
+## ✨ Features
 
 - ✅ Fetches and caches the authenticated user automatically on app mount
 - 🍪 Handles Sanctum CSRF cookie flow (including decoding `XSRF-TOKEN`)
@@ -27,12 +34,12 @@ Lightweight Nuxt module for Nuxt 3/4 that wires a Nuxt frontend to a Laravel San
 - ⚙️ Exposes a fully typed `useBiscuit` composable with `login`, `logout`, `fetchUser`, and `onUserChange`
 - 🔁 Emits client-side hooks whenever the user session changes
 
-## Requirements
+## 📋 Requirements
 
 - Nuxt `^3.0.0 || ^4.0.0`
 - Laravel backend configured with Sanctum and cookie-based authentication
 
-## Installation
+## 🚀 Installation
 
 Add the dependency to your project:
 
@@ -65,7 +72,7 @@ export default defineNuxtConfig({
 
 All options are optional. Values you omit fall back to the defaults shown above.
 
-## Usage
+## 📖 Usage
 
 ### Composable
 
@@ -112,6 +119,8 @@ onUserChange((newUser) => {
 })
 ```
 
-## License
+---
+
+## 📄 License
 
 Licensed under the [MIT license](LICENSE).
