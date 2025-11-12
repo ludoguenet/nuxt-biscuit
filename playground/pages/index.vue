@@ -9,15 +9,21 @@
     <div v-else-if="isGuest">
       <h2>Welcome, Guest!</h2>
       <p>You are not logged in.</p>
-      <NuxtLink to="/login">Go to Login</NuxtLink>
+      <NuxtLink to="/login">
+        Go to Login
+      </NuxtLink>
     </div>
 
     <div v-else>
       <h2>Welcome, {{ user?.data?.name }}!</h2>
       <p>Email: {{ user?.data?.email }}</p>
-      <button @click="handleLogout">Logout</button>
+      <button @click="handleLogout">
+        Logout
+      </button>
       <br>
-      <NuxtLink to="/dashboard">Go to Dashboard</NuxtLink>
+      <NuxtLink to="/dashboard">
+        Go to Dashboard
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -33,7 +39,8 @@ const handleLogout = async () => {
 onUserChange((newUser) => {
   if (newUser) {
     console.log('User logged in:', newUser)
-  } else {
+  }
+  else {
     console.log('User logged out')
   }
 })

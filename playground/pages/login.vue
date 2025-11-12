@@ -23,27 +23,37 @@
         >
       </div>
 
-      <button type="submit" :disabled="loading">
+      <button
+        type="submit"
+        :disabled="loading"
+      >
         {{ loading ? 'Logging in...' : 'Login' }}
       </button>
 
-      <p v-if="error" style="color: red;">{{ error }}</p>
+      <p
+        v-if="error"
+        style="color: red;"
+      >
+        {{ error }}
+      </p>
     </form>
 
-    <NuxtLink to="/">Back to Home</NuxtLink>
+    <NuxtLink to="/">
+      Back to Home
+    </NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-  middleware: 'guest'
+  middleware: 'guest',
 })
 
 const { login } = useBiscuit()
 
 const credentials = ref({
   email: '',
-  password: ''
+  password: '',
 })
 
 const loading = ref(false)
@@ -55,9 +65,14 @@ const handleLogin = async () => {
 
   try {
     await login(credentials.value)
-  } catch (e: any) {
-    error.value = e.data?.message || 'Login failed'
-  } finally {
+  }
+  catch (e: unknown) {
+    const errorData = e && typeof e === 'object' && 'data' in e
+      ? (e as { data?: { message?: string } }).data
+      : null
+    error.value = errorData?.message || 'Login failed'
+  }
+  finally {
     loading.value = false
   }
 }

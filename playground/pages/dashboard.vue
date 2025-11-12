@@ -8,15 +8,19 @@
       <pre>{{ user }}</pre>
     </div>
 
-    <button @click="handleLogout">Logout</button>
+    <button @click="handleLogout">
+      Logout
+    </button>
     <br>
-    <NuxtLink to="/">Back to Home</NuxtLink>
+    <NuxtLink to="/">
+      Back to Home
+    </NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-  middleware: 'auth'
+  middleware: 'auth',
 })
 
 const { user, logout } = useBiscuit()

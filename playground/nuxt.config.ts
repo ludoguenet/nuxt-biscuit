@@ -9,15 +9,15 @@ export default defineNuxtConfig({
       csrf: '/sanctum/csrf-cookie',
       login: '/login',
       logout: '/logout',
-      user: '/api/user'
+      user: '/api/user',
     },
     redirect: {
       onLogin: '/dashboard',
       onLogout: '/login',
       onAuthOnly: '/login',
-      onGuestOnly: '/dashboard'
-    }
+      onGuestOnly: '/dashboard',
+    },
   },
 
-  devtools: { enabled: true }
+  devtools: { enabled: true },
 })

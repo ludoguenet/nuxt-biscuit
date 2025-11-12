@@ -1,4 +1,7 @@
 import { computed, type ComputedRef, type Ref } from 'vue'
+import type { RuntimeConfig } from '@nuxt/schema'
+
+import { useBiscuitUser } from './useBiscuitUser'
 import {
   navigateTo,
   useCookie,
@@ -7,23 +10,20 @@ import {
   useRequestFetch,
   useRequestURL,
   useRuntimeConfig,
-  useState
+  useState,
 } from '#imports'
-import type { RuntimeConfig } from '@nuxt/schema'
-
-import { useBiscuitUser } from './useBiscuitUser'
 
 export interface BiscuitUser {
   id: number
   name: string
   email: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export interface BiscuitCredentials {
   email: string
   password: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export interface UseBiscuitReturn {
@@ -47,7 +47,8 @@ const HOOKS_STATE_KEY = 'biscuit:hooks'
 const callHook = async (nuxtApp: ReturnType<typeof useNuxtApp>, name: string, payload?: unknown) => {
   try {
     await nuxtApp.callHook(name, payload)
-  } catch {
+  }
+  catch {
     // silently swallow hook errors to avoid breaking auth flow
   }
 }
@@ -90,7 +91,8 @@ export const useBiscuit = (): UseBiscuitReturn => {
     for (const hook of hookBag.value) {
       try {
         hook(next)
-      } catch (error) {
+      }
+      catch (error) {
         console.error('[nuxt-biscuit] onUserChange hook failed', error)
       }
     }
@@ -99,8 +101,8 @@ export const useBiscuit = (): UseBiscuitReturn => {
   const withRequestHeaders = (headers?: Record<string, string>) => {
     const baseHeaders: Record<string, string> = {
       'X-Requested-With': 'XMLHttpRequest',
-      Accept: 'application/json',
-      ...headers
+      'Accept': 'application/json',
+      ...headers,
     }
 
     if (!import.meta.server) {
@@ -152,7 +154,7 @@ export const useBiscuit = (): UseBiscuitReturn => {
 
     return {
       ...forwarded,
-      ...baseHeaders
+      ...baseHeaders,
     }
   }
 
@@ -161,7 +163,7 @@ export const useBiscuit = (): UseBiscuitReturn => {
       method: 'GET',
       baseURL: biscuitConfig.baseUrl,
       credentials: 'include',
-      headers: withRequestHeaders()
+      headers: withRequestHeaders(),
     })
   }
 
@@ -173,7 +175,8 @@ export const useBiscuit = (): UseBiscuitReturn => {
 
     try {
       return decodeURIComponent(token.value)
-    } catch {
+    }
+    catch {
       return token.value
     }
   }
@@ -186,13 +189,14 @@ export const useBiscuit = (): UseBiscuitReturn => {
         method: 'GET',
         baseURL: biscuitConfig.baseUrl,
         credentials: 'include',
-        headers: withRequestHeaders()
+        headers: withRequestHeaders(),
       })
 
       account.value = data
       notifyChange(previousUser, data)
       await callHook(nuxtApp, 'biscuit:refresh', data)
-    } catch (error) {
+    }
+    catch (error) {
       if (account.value !== null) {
         account.value = null
       }
@@ -202,7 +206,8 @@ export const useBiscuit = (): UseBiscuitReturn => {
       if (!muteErrors) {
         throw error
       }
-    } finally {
+    }
+    finally {
       status.value = true
     }
   }
@@ -243,7 +248,7 @@ export const useBiscuit = (): UseBiscuitReturn => {
       baseURL: biscuitConfig.baseUrl,
       credentials: 'include',
       headers: withRequestHeaders(xsrfToken ? { 'X-XSRF-TOKEN': xsrfToken } : undefined),
-      body: credentials
+      body: credentials,
     })
 
     await syncUser({ muteErrors: false })
@@ -262,7 +267,7 @@ export const useBiscuit = (): UseBiscuitReturn => {
       method: 'POST',
       baseURL: biscuitConfig.baseUrl,
       credentials: 'include',
-      headers: withRequestHeaders(xsrfToken ? { 'X-XSRF-TOKEN': xsrfToken } : undefined)
+      headers: withRequestHeaders(xsrfToken ? { 'X-XSRF-TOKEN': xsrfToken } : undefined),
     })
 
     const previousUser = account.value
@@ -298,6 +303,6 @@ export const useBiscuit = (): UseBiscuitReturn => {
     refreshUser: fetchUser,
     ensureSession,
     bootstrap,
-    onUserChange
+    onUserChange,
   }
 }

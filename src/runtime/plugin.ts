@@ -1,11 +1,11 @@
+import { useBiscuitUser } from './composables/useBiscuitUser'
+import type { BiscuitUser } from './composables/useBiscuit'
 import { defineNuxtPlugin, useState } from '#app'
 
-import { useBiscuitUser } from './composables/useBiscuitUser'
-
 export default defineNuxtPlugin((nuxtApp) => {
-  const user = useBiscuitUser<any>()
+  const user = useBiscuitUser<BiscuitUser>()
   const isChecked = useState<boolean>('biscuit:checked', () => false)
-  const hooks = useState<Array<(user: any) => void>>('biscuit:hooks', () => [])
+  const hooks = useState<Array<(user: BiscuitUser | null) => void>>('biscuit:hooks', () => [])
 
   if (import.meta.client) {
     nuxtApp.hook('app:mounted', async () => {
@@ -14,7 +14,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
       try {
         await bootstrap()
-      } catch {
+      }
+      catch {
         // silently ignore; composable handles its own error state
       }
     })
@@ -25,8 +26,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       biscuit: {
         user,
         isChecked,
-        hooks
-      }
-    }
+        hooks,
+      },
+    },
   }
 })

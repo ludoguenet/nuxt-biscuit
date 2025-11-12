@@ -22,8 +22,8 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'nuxt-biscuit',
     configKey: 'biscuit',
     compatibility: {
-      nuxt: '>=3.0.0'
-    }
+      nuxt: '>=3.0.0',
+    },
   },
   defaults: {
     baseUrl: 'http://localhost:8000',
@@ -31,22 +31,22 @@ export default defineNuxtModule<ModuleOptions>({
       csrf: '/sanctum/csrf-cookie',
       login: '/login',
       logout: '/logout',
-      user: '/api/user'
+      user: '/api/user',
     },
     redirect: {
       onLogin: '/',
       onLogout: '/login',
       onAuthOnly: '/login',
-      onGuestOnly: '/'
-    }
+      onGuestOnly: '/',
+    },
   },
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
 
     // Expose options to runtime using defu for proper merging
     nuxt.options.runtimeConfig.public.biscuit = defu(
-      nuxt.options.runtimeConfig.public.biscuit as any,
-      options
+      nuxt.options.runtimeConfig.public.biscuit as ModuleOptions | undefined,
+      options,
     )
 
     // Add plugin for state management
@@ -57,26 +57,26 @@ export default defineNuxtModule<ModuleOptions>({
       {
         name: 'useBiscuit',
         as: 'useBiscuit',
-        from: resolve('./runtime/composables/useBiscuit')
+        from: resolve('./runtime/composables/useBiscuit'),
       },
       {
         name: 'useBiscuitUser',
         as: 'useBiscuitUser',
-        from: resolve('./runtime/composables/useBiscuitUser')
-      }
+        from: resolve('./runtime/composables/useBiscuitUser'),
+      },
     ])
 
     // Add middleware
     addRouteMiddleware({
       name: 'auth',
       path: resolve('./runtime/middleware/auth'),
-      global: false
+      global: false,
     })
 
     addRouteMiddleware({
       name: 'guest',
       path: resolve('./runtime/middleware/guest'),
-      global: false
+      global: false,
     })
-  }
+  },
 })
