@@ -21,7 +21,7 @@ describe('ssr', async () => {
     })
 
     // `$fetch` swallows empty 204s, so just asserting no exception is enough
-    expect(response).toBeUndefined();
+    expect(response).toBeUndefined()
   })
 
   it('can retrieve the logged-in user', async () => {
