@@ -1,6 +1,6 @@
 {
   "name": "nuxt-biscuit",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Lightweight Nuxt module for Laravel Sanctum cookie authentication",
   "keywords": [
     "nuxt",
