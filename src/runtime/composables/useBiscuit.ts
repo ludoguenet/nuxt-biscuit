@@ -23,7 +23,7 @@ export interface BiscuitUser {
 export interface BiscuitCredentials {
   email: string
   password: string
-  [key: string]: unknown
+  remember?: boolean
 }
 
 export interface UseBiscuitReturn {

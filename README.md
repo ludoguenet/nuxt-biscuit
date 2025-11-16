@@ -82,7 +82,19 @@ Call `useBiscuit()` inside your components or pages to access the current user a
 const { user, isGuest, isChecked, login, logout, fetchUser, onUserChange } = useBiscuit()
 ```
 
-- `login(credentials)` automatically fetches the Sanctum CSRF cookie, posts credentials, updates user state, and redirects to `redirect.onLogin`.
+- `login(credentials)` automatically fetches the Sanctum CSRF cookie, posts credentials, updates user state, and redirects to `redirect.onLogin`. The credentials object should contain `email`, `password`, and optionally `remember` (boolean).
+
+Example usage:
+
+```ts
+const { login } = useBiscuit()
+
+await login({
+  email: 'user@example.com',
+  password: 'password',
+  remember: true // optional: remember the user's session
+})
+```
 - `logout()` posts to the logout endpoint, clears user state, fires change hooks, and redirects to `redirect.onLogout`.
 - `fetchUser()` fetches the authenticated user and populates shared state; it safely handles guest responses.
 - `onUserChange(callback)` runs on the client whenever the session transitions between guest and authenticated.
